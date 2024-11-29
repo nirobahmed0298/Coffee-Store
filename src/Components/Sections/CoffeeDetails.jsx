@@ -4,7 +4,6 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 const CoffeeDetails = () => {
     let coffeeDetails = useLoaderData();
-    console.log(coffeeDetails);
     return (
         <section style={{ backgroundImage: `url(${banner})` }}>
             <div className='w-8/12 mx-auto my-10 '>

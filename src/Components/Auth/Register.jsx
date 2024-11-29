@@ -11,10 +11,9 @@ const Register = () => {
         let password = e.target.email.value;
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
                 let newUser = { name, email }
                 //Send DB
-                fetch('http://localhost:5000/users', {
+                fetch('https://coffee-store-server-virid-phi.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',
@@ -24,13 +23,12 @@ const Register = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
 
                     })
 
 
             })
-            .catch(error => console.log(error.message))
+            .catch()
     }
     return (
 

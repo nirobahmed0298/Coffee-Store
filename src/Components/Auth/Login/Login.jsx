@@ -11,11 +11,9 @@ const Login = () => {
         let password = e.target.email.value;
         logInUser(email, password)
             .then(result => {
-                console.log(result.user);
                 let lastSignInTime = result?.user?.metadata?.lastSignInTime;
                 let loginInfo = {email,lastSignInTime}
-                console.log(loginInfo);
-                fetch('http://localhost:5000/users', {
+                fetch('https://coffee-store-server-virid-phi.vercel.app/users', {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json',
@@ -25,13 +23,10 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
-
                     })
 
 
             })
-            .catch(error => console.log(error.message))
     }
     return (
         <section>

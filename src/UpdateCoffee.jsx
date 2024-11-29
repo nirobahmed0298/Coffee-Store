@@ -5,7 +5,6 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const UpdateCoffee = () => {
     let updateCoffee = useLoaderData();
-    console.log(updateCoffee);
     let handleUpdateCoffee = (e) => {
         e.preventDefault();
         let form = e.target;
@@ -17,8 +16,7 @@ const UpdateCoffee = () => {
         let details = form.details.value;
         let photoURL = form.photoURL.value;
         let updateCoffeeItem = { name, chef, price, taste, category, details, photoURL }
-        console.log(updateCoffeeItem);
-        fetch(`http://localhost:5000/coffee/${updateCoffee._id}`, {
+        fetch(`https://coffee-store-server-virid-phi.vercel.app/coffee/${updateCoffee._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',
@@ -27,7 +25,6 @@ const UpdateCoffee = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',

@@ -15,7 +15,7 @@ const AddCoffee = () => {
         let details = form.details.value;
         let photoURL = form.photoURL.value;
         let newCoffee = { name, chef, price, taste, category, details, photoURL }
-        fetch('http://localhost:5000/coffee', {
+        fetch('https://coffee-store-server-virid-phi.vercel.app/coffee', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -24,7 +24,6 @@ const AddCoffee = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
